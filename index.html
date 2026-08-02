@@ -130,177 +130,233 @@
         </div>
       </section>
 
-      <section class="section section-dark" id="results">
-        <div class="shell">
-          <div class="section-heading section-heading-light">
-            <div>
-              <p class="eyebrow">Results in motion</p>
-              <h2>From sparse events to dense normal maps</h2>
-            </div>
-            <p>
-              Each sequence shows the moving illumination, the corresponding event stream, and
-              the reconstructed surface normals as observations accumulate.
-            </p>
-          </div>
+      <section class="paper-section video-results-section" id="results">
+        <div class="paper-container">
+          <h2>Video Results</h2>
+          <p class="paper-section-intro">
+            Moving illumination, asynchronous events, and the reconstructed normal map are shown
+            side by side as observations accumulate.
+          </p>
 
-          <div class="video-grid">
-            <article class="video-card">
-              <div class="video-frame">
-                <video
-                  muted
-                  loop
-                  playsinline
-                  controls
-                  preload="metadata"
-                  poster="assets/images/diligent-result-poster.webp"
-                  aria-label="DiLiGenT-Sim result sequence"
-                  data-viewport-video
-                >
-                  <source src="assets/videos/diligent-result.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="video-card-copy">
-                <div>
-                  <p class="video-tag">Synthetic benchmark</p>
-                  <h3>DiLiGenT-Sim</h3>
-                </div>
-                <p>Fine surface structures emerge from asynchronous measurements.</p>
-              </div>
-            </article>
+          <div class="result-video-grid">
+            <figure class="result-video">
+              <video
+                muted
+                loop
+                playsinline
+                controls
+                preload="metadata"
+                poster="assets/images/diligent-result-poster.webp"
+                aria-label="DiLiGenT-Sim result sequence"
+                data-viewport-video
+              >
+                <source src="assets/videos/diligent-result.mp4" type="video/mp4" />
+              </video>
+              <figcaption>
+                <strong>DiLiGenT-Sim</strong>
+                <span>Fine surface structures emerge from asynchronous measurements.</span>
+              </figcaption>
+            </figure>
 
-            <article class="video-card">
-              <div class="video-frame">
-                <video
-                  muted
-                  loop
-                  playsinline
-                  controls
-                  preload="metadata"
-                  poster="assets/images/blobby-result-poster.webp"
-                  aria-label="PIE-Sim blobby-object result sequence"
-                  data-viewport-video
-                >
-                  <source src="assets/videos/blobby-result.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <div class="video-card-copy">
-                <div>
-                  <p class="video-tag">Synthetic benchmark</p>
-                  <h3>PIE-Sim</h3>
-                </div>
-                <p>Dense normals remain smooth across curved object geometry.</p>
-              </div>
-            </article>
+            <figure class="result-video">
+              <video
+                muted
+                loop
+                playsinline
+                controls
+                preload="metadata"
+                poster="assets/images/blobby-result-poster.webp"
+                aria-label="PIE-Sim blobby-object result sequence"
+                data-viewport-video
+              >
+                <source src="assets/videos/blobby-result.mp4" type="video/mp4" />
+              </video>
+              <figcaption>
+                <strong>PIE-Sim</strong>
+                <span>Dense normals remain smooth across curved object geometry.</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section class="section section-qualitative" id="comparison">
-        <div class="shell">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Qualitative comparison</p>
-              <h2>Synthetic and real-world reconstruction</h2>
-            </div>
-            <p>
-              Normal predictions are paired with angular-error maps using the same 0°–30° scale.
-              Darker error maps indicate lower error.
-            </p>
-          </div>
+      <section class="paper-section" id="comparison">
+        <div class="paper-container">
+          <h2>Qualitative Comparison</h2>
+          <p class="paper-section-intro">
+            Normal predictions are paired with angular-error maps using the same 0°–30° scale.
+            Darker error maps indicate lower error.
+          </p>
 
-          <button class="paper-figure" type="button" data-open-figure>
+          <figure class="plain-figure">
             <img
-              src="assets/images/qualitative-evaluation.webp"
+              src="assets/images/qualitative-evaluation.webp?v=2"
               alt="Qualitative comparison from the paper across PIE-Sim, DiLiGenT-Sim, EventPS real scenes, and captured scenes"
               loading="lazy"
             />
-            <span class="zoom-label">Open full figure <span aria-hidden="true">↗</span></span>
-          </button>
-          <p class="figure-caption">
-            Figure from the paper. PIE-PS is compared with EventPS-FCN, EventPS-CNN, and the direct
-            solver on PIE-Sim, DiLiGenT-Sim, EventPS real scenes, and our captures.
-          </p>
+            <figcaption>
+              Qualitative comparison across PIE-Sim, DiLiGenT-Sim, EventPS real scenes, and our
+              captured scenes. Each method cell shows the normal prediction and angular error.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="section section-metrics" aria-labelledby="metrics-title">
-        <div class="shell">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Quantitative results</p>
-              <h2 id="metrics-title">Lower error across every evaluation setting</h2>
+      <section class="paper-section quantitative-section" aria-labelledby="metrics-title">
+        <div class="paper-container">
+          <h2 id="metrics-title">Quantitative Results</h2>
+          <p class="paper-section-intro">Mean angular error (MAE) in degrees. Lower is better.</p>
+
+          <div class="paper-table-block">
+            <h3>DiLiGenT-Sim</h3>
+            <div class="table-scroll" tabindex="0" aria-label="Scrollable DiLiGenT-Sim results">
+              <table class="paper-table">
+                <caption>Quantitative comparison on DiLiGenT-Sim.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Method</th>
+                    <th scope="col">Ball</th>
+                    <th scope="col">Buddha</th>
+                    <th scope="col">Cat</th>
+                    <th scope="col">Cow</th>
+                    <th scope="col">Goblet</th>
+                    <th scope="col">Harvest</th>
+                    <th scope="col">Pot1</th>
+                    <th scope="col">Pot2</th>
+                    <th scope="col">Reading</th>
+                    <th scope="col">Average</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">EventUPS</th>
+                    <td>8.86</td><td>12.21</td><td>10.78</td><td>18.58</td><td>12.97</td>
+                    <td>23.32</td><td>8.70</td><td>15.13</td><td>16.71</td><td>14.14</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EventPS-OP</th>
+                    <td>10.99</td><td>18.73</td><td>12.74</td><td>26.51</td><td>18.43</td>
+                    <td>36.06</td><td>13.78</td><td>15.75</td><td>24.61</td><td>19.73</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EventPS-FCN</th>
+                    <td>7.49</td><td>18.13</td><td>11.42</td><td>20.61</td><td>18.07</td>
+                    <td>26.05</td><td>12.83</td><td>16.59</td><td>15.16</td><td>16.26</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EventPS-CNN</th>
+                    <td>10.44</td><td>16.79</td><td>11.88</td><td>20.60</td><td>16.44</td>
+                    <td>25.26</td><td>12.93</td><td>15.54</td><td>18.19</td><td>16.45</td>
+                  </tr>
+                  <tr class="solver-row">
+                    <th scope="row">Direct Solver</th>
+                    <td>15.36</td><td>15.09</td><td>13.75</td><td>14.55</td><td>15.62</td>
+                    <td>20.07</td><td>13.59</td><td>14.67</td><td>17.72</td><td>15.60</td>
+                  </tr>
+                  <tr class="ours-row">
+                    <th scope="row">PIE-PS</th>
+                    <td>3.93</td><td>8.67</td><td>5.15</td><td>12.90</td><td>7.81</td>
+                    <td>12.91</td><td>6.33</td><td>8.34</td><td>12.25</td><td>8.70</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <p>Mean angular error (MAE) in degrees. Lower is better.</p>
           </div>
 
-          <div class="metric-grid">
-            <article class="metric-card">
-              <p>DiLiGenT-Sim</p>
-              <strong>8.70°</strong>
-              <span>PIE-PS average MAE</span>
-              <div class="metric-comparison">
-                <span>Best published baseline</span><b>14.14°</b>
-                <span>Direct solver</span><b>15.60°</b>
-              </div>
-            </article>
-            <article class="metric-card">
-              <p>PIE-Sim</p>
-              <strong>10.66°</strong>
-              <span>PIE-PS average MAE</span>
-              <div class="metric-comparison">
-                <span>EventPS-FCN</span><b>25.84°</b>
-                <span>Direct solver</span><b>21.88°</b>
-              </div>
-            </article>
-            <article class="metric-card">
-              <p>Real-world scenes</p>
-              <strong>10.38°</strong>
-              <span>PIE-PS average MAE</span>
-              <div class="metric-comparison">
-                <span>EventPS-FCN</span><b>20.91°</b>
-                <span>Direct solver</span><b>23.90°</b>
-              </div>
-            </article>
+          <div class="paper-table-block">
+            <h3>PIE-Sim</h3>
+            <div class="table-scroll" tabindex="0" aria-label="Scrollable PIE-Sim results">
+              <table class="paper-table">
+                <caption>Results by object family and lighting trajectory on PIE-Sim.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Method</th>
+                    <th scope="col">Blobby<br />Circle</th>
+                    <th scope="col">Blobby<br />Hypo.</th>
+                    <th scope="col">Blobby<br />DiLiGenT</th>
+                    <th scope="col">Sculpture<br />Circle</th>
+                    <th scope="col">Sculpture<br />Hypo.</th>
+                    <th scope="col">Sculpture<br />DiLiGenT</th>
+                    <th scope="col">Average</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">EventPS-FCN</th>
+                    <td>28.83</td><td>16.83</td><td>21.73</td><td>31.63</td><td>26.43</td><td>29.59</td><td>25.84</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EventPS-CNN</th>
+                    <td>43.50</td><td>42.11</td><td>26.08</td><td>48.31</td><td>46.85</td><td>28.08</td><td>39.15</td>
+                  </tr>
+                  <tr class="solver-row">
+                    <th scope="row">Direct Solver</th>
+                    <td>27.08</td><td>17.24</td><td>13.02</td><td>26.60</td><td>24.68</td><td>22.67</td><td>21.88</td>
+                  </tr>
+                  <tr class="ours-row">
+                    <th scope="row">PIE-PS</th>
+                    <td>10.68</td><td>6.41</td><td>4.81</td><td>17.17</td><td>12.09</td><td>12.77</td><td>10.66</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="paper-table-block">
+            <h3>Real-world Scenes</h3>
+            <div class="table-scroll" tabindex="0" aria-label="Scrollable real-world results">
+              <table class="paper-table">
+                <caption>Results on EventPS real scenes and our captures.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Method</th>
+                    <th scope="col">Real-1</th>
+                    <th scope="col">Real-2</th>
+                    <th scope="col">Real-3</th>
+                    <th scope="col">Bunny</th>
+                    <th scope="col">Rectangle</th>
+                    <th scope="col">Flower</th>
+                    <th scope="col">Average</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">EventPS-FCN</th>
+                    <td>15.79</td><td>19.65</td><td>9.42</td><td>26.14</td><td>18.70</td><td>35.76</td><td>20.91</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EventPS-CNN</th>
+                    <td>17.65</td><td>20.16</td><td>14.85</td><td>48.78</td><td>48.11</td><td>43.14</td><td>32.12</td>
+                  </tr>
+                  <tr class="solver-row">
+                    <th scope="row">Direct Solver</th>
+                    <td>21.08</td><td>21.10</td><td>20.50</td><td>23.46</td><td>32.22</td><td>25.02</td><td>23.90</td>
+                  </tr>
+                  <tr class="ours-row">
+                    <th scope="row">PIE-PS</th>
+                    <td>6.51</td><td>6.09</td><td>5.92</td><td>12.69</td><td>11.52</td><td>19.57</td><td>10.38</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section-resources" id="resources">
-        <div class="shell narrow">
-          <p class="eyebrow">Resources</p>
-          <h2>Paper, code, and data</h2>
-          <p class="resources-intro">
-            Permanent links will be added after the final paper is approved. The current page
-            presents results only; source code and datasets are not yet public.
+      <section class="paper-section" id="resources">
+        <div class="paper-container resource-section-simple">
+          <h2>Resources</h2>
+          <p class="paper-section-intro">
+            Permanent links will be added after the final paper is approved.
           </p>
-          <div class="resource-cards">
-            <article>
-              <span>01</span>
-              <h3>Paper</h3>
-              <p>Final manuscript and supplementary material.</p>
-              <strong>Coming soon</strong>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Code</h3>
-              <p>Training, evaluation, and reconstruction implementation.</p>
-              <strong>Coming soon</strong>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Data</h3>
-              <p>PIE-Sim resources and release documentation.</p>
-              <strong>Coming soon</strong>
-            </article>
-          </div>
+          <p class="simple-resource-list" aria-label="Project resources">
+            <span>Paper <small>Coming soon</small></span>
+            <span>Code <small>Coming soon</small></span>
+            <span>Data <small>Coming soon</small></span>
+          </p>
 
-          <div class="citation-placeholder">
-            <div>
-              <p class="eyebrow">Citation</p>
-              <h3>BibTeX will be added with the final publication record.</h3>
-            </div>
-            <span>SIGGRAPH Asia 2026</span>
-          </div>
+          <h2 class="citation-title">Citation</h2>
+          <p class="citation-note">BibTeX will be added with the final publication record.</p>
         </div>
       </section>
     </main>
@@ -313,14 +369,5 @@
       </div>
     </footer>
 
-    <dialog class="figure-dialog" data-figure-dialog aria-label="Full qualitative comparison">
-      <button type="button" class="dialog-close" data-close-figure aria-label="Close figure">
-        Close ×
-      </button>
-      <img
-        src="assets/images/qualitative-evaluation.webp"
-        alt="Full qualitative comparison from the PIE-PS paper"
-      />
-    </dialog>
   </body>
 </html>
