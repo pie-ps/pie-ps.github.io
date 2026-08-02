@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PIE-PS reconstructs dense surface normals from physical irradiance event streams under moving illumination."
+    />
+    <meta name="theme-color" content="#0c1712" />
+    <link rel="canonical" href="https://pie-ps.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pie-ps.github.io/" />
+    <meta property="og:title" content="PIE-PS" />
+    <meta
+      property="og:description"
+      content="Photometric Stereo from Physical Irradiance Event Streams."
+    />
+    <meta
+      property="og:image"
+      content="https://pie-ps.github.io/assets/images/qualitative-evaluation.webp"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PIE-PS" />
+    <meta
+      name="twitter:description"
+      content="Photometric Stereo from Physical Irradiance Event Streams."
+    />
+    <meta
+      name="twitter:image"
+      content="https://pie-ps.github.io/assets/images/qualitative-evaluation.webp"
+    />
+    <title>PIE-PS — Photometric Stereo from Physical Irradiance Event Streams</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="wordmark" href="#top" aria-label="PIE-PS home">
+          <span class="wordmark-mark" aria-hidden="true"></span>
+          <span>PIE-PS</span>
+        </a>
+        <nav aria-label="Primary navigation">
+          <a href="#overview">Overview</a>
+          <a href="#results">Results</a>
+          <a href="#resources">Resources</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+        <div class="shell hero-copy">
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            SIGGRAPH Asia 2026 · Conditionally accepted
+          </div>
+          <h1>
+            <span>PIE-PS</span>
+            <small>Photometric Stereo from Physical Irradiance Event Streams</small>
+          </h1>
+          <p class="hero-lead">
+            Dense surface-normal reconstruction from raw event streams captured under moving
+            illumination.
+          </p>
+
+          <div class="resource-row" aria-label="Project resources">
+            <span class="resource-link is-disabled" aria-disabled="true">
+              Paper <small>Coming soon</small>
+            </span>
+            <span class="resource-link is-disabled" aria-disabled="true">
+              Code <small>Coming soon</small>
+            </span>
+            <span class="resource-link is-disabled" aria-disabled="true">
+              Data <small>Coming soon</small>
+            </span>
+            <a class="resource-link resource-link-primary" href="#results">
+              View results <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="shell hero-media">
+          <div class="video-frame video-frame-hero">
+            <video
+              muted
+              loop
+              playsinline
+              autoplay
+              controls
+              preload="metadata"
+              poster="assets/images/hero-result-poster.webp"
+              aria-label="PIE-PS result video showing illumination, events, and reconstructed surface normals"
+            >
+              <source src="assets/videos/hero-result.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="media-legend" aria-hidden="true">
+            <span>Input illumination</span>
+            <span>Event stream</span>
+            <span>Normal reconstruction</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-overview" id="overview">
+        <div class="shell narrow">
+          <p class="eyebrow">Overview</p>
+          <h2>Recovering surface orientation from asynchronous visual measurements</h2>
+          <div class="overview-grid">
+            <p class="overview-lead">
+              Event cameras provide microsecond-level measurements and high dynamic range, but
+              their sparse outputs depend on an unknown contrast threshold. PIE-PS learns to
+              recover dense surface normals directly from raw events and known moving-light
+              directions.
+            </p>
+            <p>
+              The framework builds physical irradiance observations from adjacent events, shares
+              information across space and time, and learns to reduce the influence of unreliable
+              measurements. Experiments on synthetic benchmarks and real captures consistently
+              improve over prior event-based photometric stereo methods and a direct physics-only
+              solver.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" id="results">
+        <div class="shell">
+          <div class="section-heading section-heading-light">
+            <div>
+              <p class="eyebrow">Results in motion</p>
+              <h2>From sparse events to dense normal maps</h2>
+            </div>
+            <p>
+              Each sequence shows the moving illumination, the corresponding event stream, and
+              the reconstructed surface normals as observations accumulate.
+            </p>
+          </div>
+
+          <div class="video-grid">
+            <article class="video-card">
+              <div class="video-frame">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  preload="metadata"
+                  poster="assets/images/diligent-result-poster.webp"
+                  aria-label="DiLiGenT-Sim result sequence"
+                  data-viewport-video
+                >
+                  <source src="assets/videos/diligent-result.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-copy">
+                <div>
+                  <p class="video-tag">Synthetic benchmark</p>
+                  <h3>DiLiGenT-Sim</h3>
+                </div>
+                <p>Fine surface structures emerge from asynchronous measurements.</p>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-frame">
+                <video
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  preload="metadata"
+                  poster="assets/images/blobby-result-poster.webp"
+                  aria-label="PIE-Sim blobby-object result sequence"
+                  data-viewport-video
+                >
+                  <source src="assets/videos/blobby-result.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="video-card-copy">
+                <div>
+                  <p class="video-tag">Synthetic benchmark</p>
+                  <h3>PIE-Sim</h3>
+                </div>
+                <p>Dense normals remain smooth across curved object geometry.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-qualitative" id="comparison">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Qualitative comparison</p>
+              <h2>Synthetic and real-world reconstruction</h2>
+            </div>
+            <p>
+              Normal predictions are paired with angular-error maps using the same 0°–30° scale.
+              Darker error maps indicate lower error.
+            </p>
+          </div>
+
+          <button class="paper-figure" type="button" data-open-figure>
+            <img
+              src="assets/images/qualitative-evaluation.webp"
+              alt="Qualitative comparison from the paper across PIE-Sim, DiLiGenT-Sim, EventPS real scenes, and captured scenes"
+              loading="lazy"
+            />
+            <span class="zoom-label">Open full figure <span aria-hidden="true">↗</span></span>
+          </button>
+          <p class="figure-caption">
+            Figure from the paper. PIE-PS is compared with EventPS-FCN, EventPS-CNN, and the direct
+            solver on PIE-Sim, DiLiGenT-Sim, EventPS real scenes, and our captures.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-metrics" aria-labelledby="metrics-title">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Quantitative results</p>
+              <h2 id="metrics-title">Lower error across every evaluation setting</h2>
+            </div>
+            <p>Mean angular error (MAE) in degrees. Lower is better.</p>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card">
+              <p>DiLiGenT-Sim</p>
+              <strong>8.70°</strong>
+              <span>PIE-PS average MAE</span>
+              <div class="metric-comparison">
+                <span>Best published baseline</span><b>14.14°</b>
+                <span>Direct solver</span><b>15.60°</b>
+              </div>
+            </article>
+            <article class="metric-card">
+              <p>PIE-Sim</p>
+              <strong>10.66°</strong>
+              <span>PIE-PS average MAE</span>
+              <div class="metric-comparison">
+                <span>EventPS-FCN</span><b>25.84°</b>
+                <span>Direct solver</span><b>21.88°</b>
+              </div>
+            </article>
+            <article class="metric-card">
+              <p>Real-world scenes</p>
+              <strong>10.38°</strong>
+              <span>PIE-PS average MAE</span>
+              <div class="metric-comparison">
+                <span>EventPS-FCN</span><b>20.91°</b>
+                <span>Direct solver</span><b>23.90°</b>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-resources" id="resources">
+        <div class="shell narrow">
+          <p class="eyebrow">Resources</p>
+          <h2>Paper, code, and data</h2>
+          <p class="resources-intro">
+            Permanent links will be added after the final paper is approved. The current page
+            presents results only; source code and datasets are not yet public.
+          </p>
+          <div class="resource-cards">
+            <article>
+              <span>01</span>
+              <h3>Paper</h3>
+              <p>Final manuscript and supplementary material.</p>
+              <strong>Coming soon</strong>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Code</h3>
+              <p>Training, evaluation, and reconstruction implementation.</p>
+              <strong>Coming soon</strong>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Data</h3>
+              <p>PIE-Sim resources and release documentation.</p>
+              <strong>Coming soon</strong>
+            </article>
+          </div>
+
+          <div class="citation-placeholder">
+            <div>
+              <p class="eyebrow">Citation</p>
+              <h3>BibTeX will be added with the final publication record.</h3>
+            </div>
+            <span>SIGGRAPH Asia 2026</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-inner">
+        <span>PIE-PS</span>
+        <p>Photometric Stereo from Physical Irradiance Event Streams</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <dialog class="figure-dialog" data-figure-dialog aria-label="Full qualitative comparison">
+      <button type="button" class="dialog-close" data-close-figure aria-label="Close figure">
+        Close ×
+      </button>
+      <img
+        src="assets/images/qualitative-evaluation.webp"
+        alt="Full qualitative comparison from the PIE-PS paper"
+      />
+    </dialog>
+  </body>
+</html>
