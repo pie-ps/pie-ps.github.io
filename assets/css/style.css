@@ -553,7 +553,8 @@ h2 {
   margin: 0;
 }
 
-.simple-resource-list span {
+.simple-resource-list span,
+.simple-resource-list a {
   color: #242a26;
   font-weight: 650;
 }
